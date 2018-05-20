@@ -1,6 +1,11 @@
 # cookie-stand
 201n11 Salmon Cookie Project Lab6
 
+Branches
+
+day1-object-literal
+day2-constructor-functions?
+
 Assignment Overview: Lab 6
 In class, we learned how to model an entity in JavaScript using objects. Now, it's your turn to start building an application that models the problem domain in the support doc linked in Helpful Resources.
 
