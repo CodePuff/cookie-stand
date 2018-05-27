@@ -1,79 +1,94 @@
 'use strict';
 
-//wolf is the object
-var wolf = {
-  //key value pairs: name is key, value is Gray
-  name: 'Gray',
-  packNum: 9,
-  gender: 'female',
-  age: 7,
-  territory: 'North Cascades',
-  alpha: true,
-  yellowEyes: true,
-  family: {
-    mate: {
-      name: 'Black',
-    },
-    pups: ['Larry',
-      'Curly',
-      'Mo'
-    ]
+//create a global array of open store hours. use single quotes
+
+var hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
+
+//create a local object literal for First and Pike
+
+var firstAndPikeStore = {
+  name: 'First and Pike',
+
+  //creating key value pairs called properties inside of each store object
+
+  //minimum customer per hour
+  minCustPerHour: 23,
+
+  //maximum customer per hour
+  maxCustPerHour: 65,
+
+  //average cookies sold per hour
+  avgCookiesSoldPerHour: 6.3,
+
+  //random customers by hour. this is an open array as we are looking to find the answer to this
+  randCustByHour: [],
+
+  //cookies sold by hour. this is also an open array as we are looking to find the answer to this
+  cookiesSoldByHour: [],
+
+  //total number of cookies. this is set to zero as we are waiting to calculate the total number based on the function
+  totalCookies: 0,
+
+  //for method function to calculate random customers by hour
+  calcRandCustByHour:function(){
+
+    for(var i=0;i<hours.length;i++){
+
+      //Math.floor is used to round down while Math.random is used to generate random number based on parameter calling the methods in the object literal via 'this'
+      this.randCustByHour.push(Math.floor(Math.random()*(this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour);
+    
+      //referencing [i] based on hours open array
+      console.log(this.randCustByHour[i]);
+
+    }
   },
-  speak: function () {
-    console.log('Howl, my name is ' + wolf.name + ' and I like to roam around in the ' + wolf.territory + '.');
+
+  //for method function to calculate cookies sold by hour calling the methods in the object literal via 'this'
+  calcCookiesSoldByHour: function(){
+
+    for(var j=0;j<hours.length;j++){
+
+      this.cookiesSoldByHour.push(Math.round(this.avgCookiesSoldPerHour*this.randCustByHour[j]));
+
+      console.log(this.cookiesSoldByHour[j]);
+    }
+  },
+
+  //getters and setters
+  render:function(){
+
+    var firstAndPike = document.getElementById('firstAndPike');
+
+    var firstNpike = document.getElementById('1stAndPike');
+
+    //calling the methods in the object literal 
+    this.calcRandCustByHour();
+    this.calcCookiesSoldByHour();
+
+    //Using DOM Manipulation, create a variable to be able to append an item to the list and create a new h3 element
+    var h3El = document.createElement('h3');
+  
+    //text will be given to the new h3 elementl which is the store name
+    h3El.textContent = this.name;
+
+    //connecting the new sales info to the store name
+    firstAndPike.appendChild(h3El);
+
+    for(var k=0; k<hours.length; k++){
+
+      //stepping through the hours array
+      var liEl=document.createElement('li');
+
+      //creating li list elements with the text of the hours
+      liEl.textContent = hours[k] + ':' + this.cookiesSoldByHour[k]+'cookies';
+  
+      console.log(liEl);
+
+      firstNpike.appendChild(liEl);
+    }
+
   }
 
 };
-wolf.speak();
 
-//this is a getter using dot notation to access, dot notation is more popular
-console.log(wolf.age);
-
-//if I want to add a pup I can access the pup array using dot notation 
-//wolf.family.pups.push('Summer'); 
-
-//////////////////////////////
-
-//these are notes for your co-working session to help you get started
-//consider using math.random(); look that up in MDN
-
-var pike = {
-  min: 3,
-  max: 9,
-  avg: 6.1,
-  getRandom: function (min, max) {
-    return Math.random() * (max - min) + min;
-  }
-}
-
-pikePlace.getRandom(pikePlace.min, pikePlace.max)
-
-//1.) Create one object literal that will aggregate data, generate for each hour a number of cookies that need to be baked.
-//2.) Once you have that data you will populate your DOM dynamically
-//3.) With that data you'll create an unordered list.
-//4.) You'll write a final method on the object literal called render and that will populate your data in the browser with DOM manipulation.
-//5.) document.createElement(''); it takes a string argument that is the element that we want to create 
-
-// example 
-// var h1El = document.createElement('h1') creates an element with js but havent' attached it to the browser
-//latch onto any id name
-
-// DOM Interactions
-// These are the most used and common methods for interacting with the DOM:
-//     Getters: // Document or element methods:
-//     document.getElementById(); //returns a single element;
-// document.getElementsByClassName(); //returns an array of elements with same class;
-// document.getElementsByTagName(); //returns an array of elements by tag;
-// document.querySelectorAll(some css shiz) //returns an array of element nodes.
-// Elements:
-// document.createElement('div') //returns a new 'div' element with the provided string.
-// element.children //returns all of the element's children with their own corresponding children.
-// element.parentElement // refers to the element's parent element.
-// element.appendChild(element) //puts the element arg and pushes it to the end of its children.
-// element.removeChild(child element) //takes in the child element node to remove.
-// element.insertBefore(new element, existing element); //inserts a new element before the 2nd parameter.
-// Steps:
-// Make a JavaScript reference(a variable) to the parent element
-// Create the child element we want to add and save it as a variable
-// Give the child content - in this case, the content is text
-// Append the child to the parent
+firstAndPikeStore.render();
