@@ -27,3 +27,8 @@ Include in your repository a `.eslintrc.json` file whose contents are copied fro
 
 ### User Stories (Stretch... only after completing everything above)
  - As a developer, I want to make some headway on the public-facing page for the business
+
+# Code: Finish the salmon cookie stand project
+
+  - The MVP version of the project involves completion of the functionality and styling of the index.html and data.html pages.
+  - One more thing: Use a gh-pages branch to deploy it!
