@@ -92,3 +92,154 @@ var firstAndPikeStore = {
 };
 
 firstAndPikeStore.render();
+
+/////////////////////
+var seaTac = document.getElementById('seaTac');
+
+var seaTacStore = document.getElementById('seaTac');
+
+//calling the methods in the object literal 
+this.calcRandCustByHour();
+this.calcCookiesSoldByHour();
+
+//Using DOM Manipulation, create a variable to be able to append an item to the list and create a new h3 element
+var h3El = document.createElement('h3');
+
+//text will be given to the new h3 elementl which is the store name
+h3El.textContent = this.name;
+
+//connecting the new sales info to the store name
+seaTac.appendChild(h3El);
+
+for (var k = 0; k < hours.length; k++) {
+
+  //stepping through the hours array
+  var liEl = document.createElement('li');
+
+  //creating li list elements with the text of the hours
+  liEl.textContent = hours[k] + ':' + this.cookiesSoldByHour[k] + 'cookies';
+
+  console.log(liEl);
+
+  seaTacStore.appendChild(liEl);
+}
+
+  }
+
+};
+
+seaTacStore.render();
+
+///////////////////////////
+
+var seattleCenter = document.getElementById('seattleCenter');
+
+var seattleCenterStore = document.getElementById('seattleCenter');
+
+//calling the methods in the object literal 
+this.calcRandCustByHour();
+this.calcCookiesSoldByHour();
+
+//Using DOM Manipulation, create a variable to be able to append an item to the list and create a new h3 element
+var h3El = document.createElement('h3');
+
+//text will be given to the new h3 elementl which is the store name
+h3El.textContent = this.name;
+
+//connecting the new sales info to the store name
+seattleCenter.appendChild(h3El);
+
+for (var k = 0; k < hours.length; k++) {
+
+  //stepping through the hours array
+  var liEl = document.createElement('li');
+
+  //creating li list elements with the text of the hours
+  liEl.textContent = hours[k] + ':' + this.cookiesSoldByHour[k] + 'cookies';
+
+  console.log(liEl);
+
+  seattleCenterStore.appendChild(liEl);
+}
+
+  }
+
+};
+
+seattleCenterStore.render();
+
+////////////////////
+
+var capitalHill = document.getElementById('capitalHill');
+
+var capitalHillStore = document.getElementById('capitalHill');
+
+//calling the methods in the object literal 
+this.calcRandCustByHour();
+this.calcCookiesSoldByHour();
+
+//Using DOM Manipulation, create a variable to be able to append an item to the list and create a new h3 element
+var h3El = document.createElement('h3');
+
+//text will be given to the new h3 elementl which is the store name
+h3El.textContent = this.name;
+
+//connecting the new sales info to the store name
+capitalHill.appendChild(h3El);
+
+for (var k = 0; k < hours.length; k++) {
+
+  //stepping through the hours array
+  var liEl = document.createElement('li');
+
+  //creating li list elements with the text of the hours
+  liEl.textContent = hours[k] + ':' + this.cookiesSoldByHour[k] + 'cookies';
+
+  console.log(liEl);
+
+  capitalHillStore.appendChild(liEl);
+}
+
+  }
+
+};
+
+capitalHillStore.render();
+
+///////////////////
+
+var alki = document.getElementById('alki');
+
+var alkiStore = document.getElementById('alki');
+
+//calling the methods in the object literal 
+this.calcRandCustByHour();
+this.calcCookiesSoldByHour();
+
+//Using DOM Manipulation, create a variable to be able to append an item to the list and create a new h3 element
+var h3El = document.createElement('h3');
+
+//text will be given to the new h3 elementl which is the store name
+h3El.textContent = this.name;
+
+//connecting the new sales info to the store name
+alki.appendChild(h3El);
+
+for (var k = 0; k < hours.length; k++) {
+
+  //stepping through the hours array
+  var liEl = document.createElement('li');
+
+  //creating li list elements with the text of the hours
+  liEl.textContent = hours[k] + ':' + this.cookiesSoldByHour[k] + 'cookies';
+
+  console.log(liEl);
+
+  alkiStore.appendChild(liEl);
+}
+
+  }
+
+};
+
+alkiStore.render();
